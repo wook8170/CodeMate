@@ -55,6 +55,24 @@ Upstream과 머지 시 아래 표를 참고하여 충돌을 해결하십시오. 
 
 ---
 
+## 📈 리브랜딩 전체 수정 파일 목록 및 상세 변경 내역
+
+본 프로젝트의 리브랜딩을 위해 수정된 모든 파일의 목록과 구체적인 변경 사항입니다. Upstream 업데이트 시 아래 내용을 전수 점검하여 브랜딩 누락을 방지하십시오.
+
+| 분류 | 파일 경로 | 주요 수정 내용 | 상세 변경 내역 |
+| :--- | :--- | :--- | :--- |
+| **핵심 설정** | `package.json` | 확장 고유 식별자 및 메타데이터 통합 | `name`, `publisher`, `displayName`, `repository`, `homepage` 수정. `viewsContainers`, `views`, `walkthroughs` ID를 `codemate.*`로 교체 |
+| **CLI 설정** | `cli/package.json` | CLI 패키지 명칭 수정 | `name`을 `codemate`로 변경하여 모노레포 내 식별자 충돌 방지 |
+| **로직 식별자** | `src/registry.ts` | 명령어 및 뷰 식별자 호환성 고정 | `prefix`를 `"cline"`으로 고정(Upstream 명령 호환용). 사이드바 ID를 `package.json` 이름과 동기화 |
+| **로직 진입점** | `src/extension.ts` | 사이드바 뷰 등록 로직 통합 | `SidebarProvider` 등록 시 `ExtensionRegistryInfo.viewId`를 사용하도록 수정 |
+| **채팅 UI** | `ChatRow.tsx` | 도구 실행 및 상태 메시지 텍스트 교체 | `"Cline wants to..."`, `"Cline has a question"`, `"Cline is having trouble"` 등 텍스트를 **CodeMate**로 일괄 수정 |
+| **온보딩** | `data-steps.ts` | 온보딩 과정 문구 수정 | 질문 제목 `"How will you use Cline?"` → **`"How will you use CodeMate?"`** |
+| **설정 UI** | `OpenRouterModelPicker.tsx` | 모델 추천 가이드 문구 수정 | `"Cline works best with..."` → **`"CodeMate works best with..."`** (Baseten, Requesty 등 스캔 결과 포함) |
+| **개발 문서** | `App.stories.tsx` | 스토리북 테스트 및 설명 내용 수정 | UI 컴포넌트 설명 및 테스트 기댓값 내의 모든 "Cline"을 **CodeMate**로 교환 |
+| **리소스** | `CodeMateLogoWhite.tsx` | 로고 컴포넌트 이름 및 참조 수정 | 컴포넌트 명칭 수정 (Upstream 구조 보호를 위해 파일 이름은 유지하되 내부 컴포넌트명 교체 고려) |
+
+---
+
 ## 🛠️ 머지 실행 표준 절차 (Step-by-Step)
 
 1. **Upstream 동기화**:
