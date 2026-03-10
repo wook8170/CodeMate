@@ -114,5 +114,49 @@ Upstream과 머지 시 아래 표를 참고하여 충돌을 해결하십시오. 
 - **식별자 매칭**: `extension.ts`에서 등록하는 `SIDEBAR_ID`가 `package.json`의 `view` ID와 일치하지 않으면 사이드바가 로드되지 않고 무한 로딩(새로고침 아이콘)이 발생합니다.
 
 ---
+
+## 📜 리브랜딩 Git 히스토리 및 수정 파일 전수 내역 (Audit Log)
+
+본 프로젝트의 리브랜딩과 관련된 모든 Git 커밋 내역과 수정된 파일 리스트입니다. Upstream 머지 시 이 기록을 바탕으로 변경 사항의 누락 여부를 대조하십시오.
+
+### 1. 주요 리브랜딩 커밋 기록
+| 커밋 ID | 날짜 | 메시지 요약 | 주요 대상 |
+| :--- | :--- | :--- | :--- |
+| `accaa104e` | 2026-03-10 | docs: complete upstream merge guide with full list of rebranded files and details | 문서화 |
+| `ff1ebe7fa` | 2026-03-10 | docs: expand upstream merge guide with detailed conflict resolution table | 문서화 |
+| `cfd485f16` | 2026-03-10 | docs: add upstream merge guide for maintaining rebranding consistency | 문서화 |
+| `5fbc45767` | 2026-03-10 | feat(rebrand): update onboarding and model guide UI strings to 'CodeMate' | UI 텍스트 |
+| `c4a47e92c` | 2026-03-10 | feat(rebrand): update more residual 'Cline' strings in ChatRow tool UI | 채팅 UI |
+| `c102d4e33` | 2026-03-10 | fix(sidebar): update view IDs to match new extension ID and fix sidebar loading issue | 사이드바 이슈 해결 |
+| `cbf50adeb` | 2026-03-10 | feat(rebrand): unify extension identity (name, publisher) and fix remaining hardcoded strings | 핵심 식별자 통합 |
+| `5bb94b3f0` | 2026-03-10 | feat(rebrand): finalize webview ui rebranding, unify model display prefix, and remove docs links | 웹뷰 고도화 |
+
+### 2. 리브랜딩 관련 전체 수정 파일 목록 (Source Audit List)
+다음 파일들은 리브랜딩을 위해 명시적으로 수정되었으며, Upstream 업데이트 시 동일한 위치의 코드를 반드시 점검해야 합니다.
+
+- **프로젝트 루트 및 설정**
+  - `package.json` (확장 이름, 퍼블리셔, 뷰 ID)
+  - `cli/package.json` (CLI 패키지 명칭)
+  - `esbuild.mjs` (VSIX 파일명 출력 등)
+  - `CONTRIBUTING.md`, `README.md` (브랜드 명칭)
+
+- **백엔드 로직 (src/)**
+  - `src/registry.ts` (명령어 프리픽스, 뷰 식별자 정의)
+  - `src/extension.ts` (뷰 제공자 등록 식별자)
+  - `src/shared/ExtensionMessage.ts` (메시지 타입명 참조)
+  - `src/integrations/notifications/index.ts` (알림 이름)
+
+- **프론트엔드 웹뷰 (webview-ui/src/)**
+  - `webview-ui/src/App.tsx` (인증 컨텍스트 사용처)
+  - `webview-ui/src/components/chat/ChatRow.tsx` (도구 실행 안내 문구)
+  - `webview-ui/src/components/onboarding/data-steps.ts` (온보딩 질문)
+  - `webview-ui/src/components/onboarding/OnboardingView.tsx` (로고 및 UI)
+  - `webview-ui/src/components/settings/OpenRouterModelPicker.tsx` (모델 가이드)
+  - `webview-ui/src/components/settings/BasetenModelPicker.tsx` (모델 가이드)
+  - `webview-ui/src/components/settings/RequestyModelPicker.tsx` (모델 가이드)
+  - `webview-ui/src/App.stories.tsx` (UI 문서 및 테스트 코드)
+  - `webview-ui/src/assets/CodeMateLogoWhite.tsx` (로고 컴포넌트)
+
+---
 **최종 업데이트**: 2026-03-10
 **작성자**: CodeMate Rebranding Team (Dean Borisov)
