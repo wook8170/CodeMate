@@ -275,7 +275,7 @@ const ToolCallText: React.FC<{
 
 	return (
 		<Text>
-			<Text color={toolColor}>Cline {actionText}</Text>
+			<Text color={toolColor}>CodeMate {actionText}</Text>
 			{mainArg && (
 				<Text>
 					<Text color={toolColor}>: </Text>
@@ -420,7 +420,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, mode, isStrea
 		const output = outputIndex === -1 ? "" : text.slice(outputIndex + COMMAND_OUTPUT_STRING.length).trim()
 
 		const isAsk = type === "ask"
-		const label = isAsk ? "Cline wants to execute this command: " : "Cline executed this command: "
+		const label = isAsk ? "CodeMate wants to execute this command: " : "CodeMate executed this command: "
 
 		return (
 			<Box flexDirection="column" marginBottom={1} width="100%">
@@ -473,7 +473,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, mode, isStrea
 			: undefined
 
 		const serverName = parsed?.serverName || "unknown server"
-		const actionLabel = isAsk ? "Cline wants to use MCP" : "Cline used MCP"
+		const actionLabel = isAsk ? "CodeMate wants to use MCP" : "CodeMate used MCP"
 		const targetLine =
 			parsed?.type === "access_mcp_resource"
 				? `resource: ${parsed?.uri || "unknown"}`
@@ -548,7 +548,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, mode, isStrea
 			<Box flexDirection="column" marginBottom={1} width="100%">
 				<DotRow color="red">
 					<Text color="red" wrap="wrap">
-						Cline tried to access <Text bold>{text}</Text> which is blocked by the .clineignore file.
+						CodeMate tried to access <Text bold>{text}</Text> which is blocked by the .clineignore file.
 					</Text>
 				</DotRow>
 			</Box>
@@ -671,7 +671,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, mode, isStrea
 			<Box flexDirection="column" marginBottom={1} width="100%">
 				<DotRow color={toolColor} flashing={partial === true && isStreaming}>
 					<Text>
-						<Text color={toolColor}>Cline used the browser</Text>
+						<Text color={toolColor}>CodeMate used the browser</Text>
 						{text && (
 							<Text>
 								<Text color={toolColor}>: </Text>
@@ -690,7 +690,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, mode, isStrea
 			<Box flexDirection="column" marginBottom={1} width="100%">
 				<DotRow color={toolColor} flashing={partial === true && isStreaming}>
 					<Text>
-						<Text color={toolColor}>Cline is using an MCP tool</Text>
+						<Text color={toolColor}>CodeMate is using an MCP tool</Text>
 						{text && (
 							<Text>
 								<Text color={toolColor}>: </Text>
