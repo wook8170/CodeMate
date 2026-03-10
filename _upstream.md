@@ -36,6 +36,25 @@ Upstream 머지 시 가장 빈번하게 충돌이 발생하는 파일입니다.
 
 ---
 
+## 📊 리브랜딩 수정 내역 및 충돌 해결 전략 (Conflict Resolution Table)
+
+Upstream과 머지 시 아래 표를 참고하여 충돌을 해결하십시오. **"유지"** 항목은 CodeMate의 설정을 고수해야 하며, **"수용/수정"** 항목은 로직은 받되 텍스트만 다시 고치는 방식입니다.
+
+| 대상 파일 | 수정 항목 | Upstream 값 (Cline) | CodeMate 값 (Local) | 충돌 발생 시 조치 방향 |
+| :--- | :--- | :--- | :--- | :--- |
+| `package.json` | 확장 식별자 | `"name": "claude-dev"` | `"name": "codemate"` | **CodeMate 값 유지** (가장 중요) |
+| `package.json` | 발행자 ID | `"publisher": "saoudrizwan"` | `"publisher": "codemate-ai"` | **CodeMate 값 유지** |
+| `package.json` | 표시 명칭 | `"displayName": "Cline"` | `"displayName": "CodeMate"` | **CodeMate 값 유지** |
+| `package.json` | 뷰 컨테이너 ID | `"id": "claude-dev-ActivityBar"` | `"id": "codemate-ActivityBar"` | **CodeMate 값 유지** (아이콘 로딩 관련) |
+| `package.json` | 뷰 ID | `"id": "claude-dev.SidebarProvider"` | `"id": "codemate.SidebarProvider"` | **CodeMate 값 유지** (사이드바 로딩 관련) |
+| `src/registry.ts` | 명령어 프리픽스 | `prefix = ... (동적)` | `const prefix = "cline"` | **CodeMate 값 유지** (로직 호환성 필수) |
+| `ChatRow.tsx` | 도구 실행 문구 | `"Cline wants to..."` | `"CodeMate wants to..."` | Upstream 로직 수용 후 **텍스트만 재수정** |
+| `data-steps.ts` | 온보딩 질문 | `"How will you use Cline?"` | `"How will you use CodeMate?"` | **CodeMate 값 유지** |
+| `*.tsx` (Pickers) | 모델 가이드 | `"Cline works best with..."` | `"CodeMate works best with..."` | **CodeMate 값 유지** |
+| `extension.ts` | 뷰 등록 ID | `SIDEBAR_ID = ...` | `ExtensionRegistryInfo.viewId` | **CodeMate 값 유지** (registry.ts와 연동) |
+
+---
+
 ## 🛠️ 머지 실행 표준 절차 (Step-by-Step)
 
 1. **Upstream 동기화**:
