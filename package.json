@@ -1,5 +1,5 @@
 {
-	"name": "claude-dev",
+	"name": "codemate",
 	"displayName": "CodeMate",
 	"description": "CodeMate: Autonomous coding agent right in your IDE, capable of creating/editing files, running commands, using the browser, and more with your permission every step of the way.",
 	"version": "3.71.0",
@@ -15,12 +15,12 @@
 		"name": "CodeMate Bot Inc."
 	},
 	"license": "Apache-2.0",
-	"publisher": "saoudrizwan",
+	"publisher": "codemate-ai",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/codemate-ai/codemate"
+		"url": "https://github.com/wook8170/CodeMate"
 	},
-	"homepage": "https://codemate.ai",
+	"homepage": "https://github.com/wook8170/CodeMate",
 	"categories": [
 		"AI",
 		"Chat",
