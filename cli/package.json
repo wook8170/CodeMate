@@ -1,11 +1,11 @@
 {
-	"name": "cline",
+	"name": "codemate",
 	"version": "2.6.1",
 	"description": "Autonomous coding agent CLI - capable of creating/editing files, running commands, using the browser, and more",
 	"main": "dist/lib.mjs",
 	"types": "dist/lib.d.ts",
 	"bin": {
-		"cline": "./dist/cli.mjs"
+		"codemate": "./dist/cli.mjs"
 	},
 	"exports": {
 		".": {
@@ -38,12 +38,12 @@
 		"clean": "rimraf dist",
 		"typecheck": "npx tsc --noEmit",
 		"link": "npm run build && npm link",
-		"unlink": "npm unlink -g cline",
+		"unlink": "npm unlink -g codemate",
 		"test": "vitest",
 		"test:run": "vitest run"
 	},
 	"keywords": [
-		"cline",
+		"codemate",
 		"claude",
 		"dev",
 		"mcp",
@@ -58,14 +58,14 @@
 		"cli"
 	],
 	"author": {
-		"name": "Cline Bot Inc."
+		"name": "CodeMate Bot Inc."
 	},
 	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/cline/cline"
 	},
-	"homepage": "https://cline.bot",
+	"homepage": "https://codemate.ai",
 	"bugs": {
 		"url": "https://github.com/cline/cline/issues"
 	},

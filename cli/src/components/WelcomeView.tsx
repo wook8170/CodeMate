@@ -29,7 +29,7 @@ interface WelcomeViewProps {
 	controller?: any
 }
 
-// ASCII art Cline logo
+// ASCII art CodeMate logo
 const CLINE_LOGO = [
 	"            :::::::            ",
 	"           :::::::::           ",
@@ -245,7 +245,7 @@ export const WelcomeView: React.FC<WelcomeViewProps> = ({ onSubmit, onExit, cont
 				</Box>
 			)}
 
-			{/* Cline logo - centered */}
+			{/* CodeMate logo - centered */}
 			<Box alignItems="center" flexDirection="column">
 				{CLINE_LOGO.map((line, idx) => (
 					// biome-ignore lint/suspicious/noArrayIndexKey: static array that never changes
@@ -265,7 +265,10 @@ export const WelcomeView: React.FC<WelcomeViewProps> = ({ onSubmit, onExit, cont
 			{/* Ripgrep warning if needed */}
 			{showRipgrepWarning && (
 				<Box marginTop={1}>
-					<Text color="yellow">⚠ ripgrep not found - file search will be slower. </Text>
+					<Text color="yellow">
+						The extension automatically fetches the latest CodeMate model list. If you're unsure which model to
+						choose, CodeMate can help you.{" "}
+					</Text>
 					<Text color="gray">Install: {getRipgrepInstallInstructions()}</Text>
 				</Box>
 			)}
