@@ -22,7 +22,7 @@
 		"x64",
 		"arm64"
 	],
-	"man": "./man/cline.1",
+	"man": "./man/codemate.1",
 	"type": "module",
 	"engines": {
 		"node": ">=20.0.0"
@@ -63,11 +63,11 @@
 	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cline/cline"
+		"url": "https://github.com/wook8170/CodeMate"
 	},
 	"homepage": "https://codemate.ai",
 	"bugs": {
-		"url": "https://github.com/cline/cline/issues"
+		"url": "https://github.com/wook8170/CodeMate/issues"
 	},
 	"devDependencies": {
 		"@types/marked": "^5.0.2",
